@@ -1,23 +1,23 @@
-'use strict'
+"use strict"
 
 var fireballSize = 22;
 
 var getFireballSpeed = function (left) {
-    var result = left = true ? 5 : 2;
-    return result;
+  left = true ? 5 : 2;
+  return left;
 };
 
 var wizardSpeed = 3;
 var wizardWidth = 70;
 
 var getWizardHeight = function () {
-    return wizardWidth * 1.337;
+  return wizardWidth * 1.337;
 };
 
 var getWizardX = function (width) {
-    return width / 2 - wizardWidth / 2;
+  return width / 2 - wizardWidth / 2;
 };
 
 var getWizardY = function (height) {
-    return height * 1 / 3;
+  return height * 1 / 3;
 };
