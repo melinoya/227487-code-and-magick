@@ -29,7 +29,7 @@ var getMaxElement = function (arr) {
 };
 
 var getColor = function () {
-  var blue = Math.floor(Math.random() * (255 - 0)) + 0;
+  var blue = Math.floor(Math.random() * 255);
   var columnColor = 'rgb(0, 0, ' + blue.toString() + ')';
 
   return columnColor;
@@ -52,11 +52,7 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillStyle = '#000000';
     ctx.fillText(names[i], CLOUD_X + COLUMN_OFFSET + i * (COLUMN_WIDTH + COLUMN_OFFSET), CLOUD_HEIGHT + CLOUD_OFFSET);
 
-    if (names[i] === 'Вы') {
-      ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-    } else {
-      ctx.fillStyle = getColor();
-    }
+    ctx.fillStyle = names[i] === 'Вы' ? 'rgba(255, 0, 0, 1)' : getColor();
 
     ctx.fillRect(CLOUD_X + COLUMN_OFFSET + i * (COLUMN_WIDTH + COLUMN_OFFSET), CLOUD_HEIGHT - (COLUMN_MAX_HEIGHT * times[i]) / maxTime, COLUMN_WIDTH, (COLUMN_MAX_HEIGHT * times[i]) / maxTime);
 
