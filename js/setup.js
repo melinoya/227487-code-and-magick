@@ -31,7 +31,7 @@ var makeCharacters = function () {
   for (var i = 0; i < 4; i++) {
     var character = {};
 
-    character.name = random(nameList) + ' ' + random(surnameList);;
+    character.name = random(nameList) + ' ' + random(surnameList);
 
     character.coatColor = random(colorList);
 
