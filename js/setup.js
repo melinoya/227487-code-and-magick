@@ -31,14 +31,11 @@ var makeCharacters = function () {
   for (var i = 0; i < 4; i++) {
     var character = {};
 
-    var characterName = random(nameList) + ' ' + random(surnameList);
-    character.name = characterName;
+    character.name = random(nameList) + ' ' + random(surnameList);;
 
-    var characterColor = random(colorList);
-    character.coatColor = characterColor;
+    character.coatColor = random(colorList);
 
-    var characterEye = random(eyeList);
-    character.eyesColor = characterEye;
+    character.eyesColor = random(eyeList);
 
     charactersList[i] = character;
   }
