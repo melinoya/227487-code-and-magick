@@ -1,7 +1,6 @@
 'use strict';
 
 var dialogWindow = document.querySelector('.setup');
-dialogWindow.classList.remove('hidden');
 
 dialogWindow.querySelector('.setup-similar').classList.remove('hidden');
 
@@ -61,3 +60,81 @@ for (var i = 0; i < characters.length; i++) {
   fragment.appendChild(createWizard(characters[i]));
   wizardList.appendChild(fragment);
 }
+
+// ---------------------- module4-task1 --------------------------
+var ESC_KEYCODE = 27;
+var ENTER_KEYCODE = 13;
+var fireballColors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+var userName = document.querySelector('.setup-user-name');
+var open = document.querySelector('.setup-open');
+var openIcon = document.querySelector('.setup-open-icon');
+var close = dialogWindow.querySelector('.setup-close');
+var setupWizard = document.querySelector('.setup-wizard');
+var wizardCoat = setupWizard.querySelector('.wizard-coat');
+var form = document.querySelector('.setup-wizard-form');
+var coatElem = form.elements['coat-color'];
+var wizardEyes = setupWizard.querySelector('.wizard-eyes');
+var eyesElem = form.elements['eyes-color'];
+var fireball = document.querySelector('.setup-fireball-wrap');
+var fireballElem = form.elements['fireball-color'];
+
+var onEscClose = function () {
+  document.addEventListener('keydown', function (evt) {
+    if (evt.keyCode === ESC_KEYCODE) {
+      if (userName === document.activeElement) {
+        event.preventDefault();
+      } else {
+        dialogWindow.classList.add('hidden');
+      }
+    }
+  });
+};
+
+var openPopup = function () {
+  dialogWindow.classList.remove('hidden');
+  onEscClose();
+};
+
+var closePopup = function () {
+  dialogWindow.classList.add('hidden');
+  document.removeEventListener('keydown', onEscClose);
+};
+// ---------------------- окно открывается --------------------------
+open.addEventListener('click', function () {
+  openPopup();
+});
+
+openIcon.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === ENTER_KEYCODE) {
+    openPopup();
+  }
+});
+
+// ------------------------------ окно закрывается ---------------------------
+close.addEventListener('click', function () {
+  closePopup();
+});
+
+close.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === ENTER_KEYCODE) {
+    closePopup();
+  }
+});
+
+// ------------------------------------ изменение цвета мантии ---------------
+wizardCoat.addEventListener('click', function () {
+  wizardCoat.style.fill = random(colorList);
+  coatElem.value = wizardCoat.style.fill;
+});
+
+wizardEyes.addEventListener('click', function () {
+  wizardEyes.style.fill = random(eyeList);
+  eyesElem.value = wizardEyes.style.fill;
+});
+
+fireball.addEventListener('click', function () {
+  var randomFireball = random(fireballColors);
+  fireball.style.background = randomFireball;
+  fireballElem.value = randomFireball;
+});
+
