@@ -7,7 +7,7 @@
 
   window.util = {
     isEscEvent: function (evt, action) {
-      if (evt.keycode === ESC_KEYCODE) {
+      if (evt.keyCode === ESC_KEYCODE) {
         if (userName === document.activeElement) {
           evt.preventDefault();
         } else {
